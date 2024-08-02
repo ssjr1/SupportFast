@@ -9,8 +9,8 @@ export const routes: Routes =
 [
     {
         path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        redirectTo: 'login'
     },
     {
         path: 'login',
@@ -18,18 +18,21 @@ export const routes: Routes =
     },
     {
         path: 'principal',
-        component: PrincipalComponent
-    },
-    {
-        path: 'administracion',
-        component: AdministracionComponent
-    },
-    {
-        path: 'ticket',
-        component: TicketComponent
-    },
-    {
-        path: 'reporte',
-        component: ReporteComponent
+        component: PrincipalComponent,
+        children:
+        [
+            {
+                path: 'administracion',
+                component: AdministracionComponent
+            },
+            {
+                path: 'ticket',
+                component: TicketComponent
+            },
+            {
+                path: 'reporte',
+                component: ReporteComponent
+            }
+        ]
     }
 ];
