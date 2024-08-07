@@ -1,0 +1,23 @@
+<!-- Etiqueta div que sirve como cabecera y contenedora de la imagen y el texto -->
+<div class = "sidenav-header">
+    <!-- Agregación de una imagen -->
+    <img [width] = "profilePicSize()" [height] = "profilePicSize()" src = "/assets/images/avatar.png" />
+    <!-- Etiqueta div en donde siver como contenedora del texto -->
+    <div class = "header-text" [class.hide-header-text] = "sideNavCollapsed()">
+        <!-- Etiqueta h2 que sirve como normativa de titulos -->
+        <h2>
+            Soporte
+        </h2>
+        <!-- Etiqueta p que añade un parrafo -->
+        <p>
+            Support Fast
+        </p>
+    </div>
+</div>
+<!-- Componente de Material Angular para crear la navegación a traves de una lista -->
+<mat-nav-list>
+    @for (item of menuItems(); track item.label)
+    {
+        <app-menu-item [item] = "item" [collapsed] = "sideNavCollapsed()" />
+    }
+</mat-nav-list>
