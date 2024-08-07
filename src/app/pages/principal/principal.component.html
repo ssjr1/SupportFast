@@ -1,0 +1,24 @@
+<!-- Crea una barra en la parte superior de la aplicación con Material Angular -->
+<mat-toolbar class = "mat-elevation-z3">
+    <!-- Crea un botón y se le añade atributo de icono de botón de Material Angular
+     Se añade un evento click en el botón menú para que para la interacción expandir o contraer los modulos de navegación -->
+    <button mat-icon-button (click) = "collapsed.set(!collapsed())">
+        <!-- Se crea un icon para el botón con forma de menú a traves de Material Angular -->
+        <mat-icon>
+            menu
+        </mat-icon>
+    </button>
+</mat-toolbar>
+<!-- Se crea el contenedor principal para la navegación con Material Angular -->
+<mat-sidenav-container>
+    <!-- Propiedad que permite crear una sección lateral para crear la navegacion entre los componentes con Material Angular -->
+    <mat-sidenav mode = "side" [style.width] = "sidenavWidth()" opened>
+        <!-- Invocación de los componentes de los modulos a través del ruteo de modulos -->
+        <app-modulos-navegacion [collapsed] = "collapsed()" />
+    </mat-sidenav>
+    <!-- Se añade el contenedor de contenido de la navegación con Material Angular en donde se cargaran todos los componentes de la aplicación
+     se agrega la clase contenedor para darle estilos -->
+    <mat-sidenav-content class = "contenedor" [style.margin-left] = "sidenavWidth()">
+        <router-outlet />
+    </mat-sidenav-content>
+</mat-sidenav-container>
