@@ -1,1 +1,23 @@
-<p>usuario works!</p>
+<div *ngIf="usuarios && usuarios.length">
+  <h2 class="center">Lista de Usuarios</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ getRolName(usuario.rolId) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
