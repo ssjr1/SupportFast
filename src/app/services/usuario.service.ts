@@ -6,7 +6,7 @@ import { rol } from '../models/rol.model';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class UsuarioService {
   private usuarios: usuario[] = [
     new usuario(1, 'Juan Perez', 'juan.perez@example.com', 1),
     new usuario(2, 'Maria Lopez', 'maria.lopez@example.com', 2)

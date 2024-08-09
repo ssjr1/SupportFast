@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { usuario } from '../models/usuario.model';
-import { rol } from '../models/rol.model';
 import { CommonModule } from '@angular/common';
+import { usuario } from '../../../models/usuario.model';
+import { rol } from '../../../models/rol.model';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -15,11 +15,11 @@ export class UsuarioComponent implements OnInit {
   usuarios: usuario[] = [];
   roles: rol[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
-    this.usuarios = this.dataService.getUsuarios();
-    this.roles = this.dataService.getRoles();
+    this.usuarios = this.usuarioService.getUsuarios();
+    this.roles = this.usuarioService.getRoles();
   }
 
   getRolName(rolId: number): string {
