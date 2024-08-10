@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>Fomulario Categoria</h1>
+</div>
+
+<form [formGroup]="catForm" (ngSubmit)="guardar()">
+  <div class="container my-10">
+    <mat-card appearance="outlined" class="car">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha de creacion</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fechaCreacion">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Descripcion</mat-label>
+          <input matInput type="text" formControlName="descripcion">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Estado</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="food" formControlName="estado">
+            @for (estado of estado; track estado.id) {
+            <mat-option [value]="estado.id">{{estado.viewValue}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="example-button-row">
+        <a routerLink="/tablaCategoria">
+          <button mat-flat-button color="warn">
+            Ver Tabla
+          </button>
+        </a>
+        <button [disabled]="catForm.invalid" mat-flat-button color="primary" type="submit">
+          guardar
+        </button>
+      </div>
+    </mat-card>
+
+
+  </div>
+</form>
