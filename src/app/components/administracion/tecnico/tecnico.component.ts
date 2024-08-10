@@ -2,25 +2,37 @@ import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
 import { tecnico } from '../../../models/tecnico.model';
 import { TecnicoService } from '../../../services/tecnico.service';
+import { RouterModule } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-tecnico',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, MatPaginatorModule, MatSortModule, MatFormFieldModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, RouterModule],
   templateUrl: './tecnico.component.html',
   styleUrl: './tecnico.component.scss'
 })
 export class TecnicoComponent {
 
   listaTecnico: tecnico[] = [];
-  displayedColumns: string[] = ['id', 'nombreTecnico'];
+  displayedColumns: string[] = ['id', 'c_Tecnico'];
   dataSource!: MatTableDataSource<tecnico>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+ 
+  constructor(private _tecnicoService: TecnicoService) {  
+    this.dataSource = new MatTableDataSource<tecnico>([]);
+  }
+
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
   ngOnInit(): void {
     this.ConsultarTecnico();
@@ -35,10 +47,7 @@ export class TecnicoComponent {
     }
   }
 
-  constructor(private _tecnicoService: TecnicoService) {  
-
-  }
-
+  
   ConsultarTecnico() {
   
     this._tecnicoService.getTecnico().subscribe({
@@ -46,13 +55,12 @@ export class TecnicoComponent {
         console.log(data);
         this.listaTecnico = data;
         this.dataSource = new MatTableDataSource(this.listaTecnico);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        
       }, error: error => {
         alert("Ocurrió un error");
       },
       complete: () => {
-        console.info('Ciudad Obtenida');
+        console.info('Tecnico Obtenido');
       }    
     }
   );

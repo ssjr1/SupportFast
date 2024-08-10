@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment.development';
 })
 export class TecnicoService {
   private myAppUrl: string = environment.endpoint;
-  private myApiUrl: string = 'api/Carrera/';
+  private myApiUrl: string = 'api/Tecnico/';
 
   constructor(private http: HttpClient) { }
 

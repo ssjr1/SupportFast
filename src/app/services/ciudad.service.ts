@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment.development';
 export class CiudadService {
 
   private myAppUrl: string = environment.endpoint;
-  private myApiUrl: string = 'api/Carrera/';
+  private myApiUrl: string = 'api/Ciudad/';
 
   constructor(private http: HttpClient) { }
 
