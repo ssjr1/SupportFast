@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Nuevo Perfil</h2>
+<mat-dialog-content>
+  <form [formGroup]="perfilForm" (ngSubmit)="onSave()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Perfil</mat-label>
+      <input matInput formControlName="c_Perfil" />
+      <mat-error *ngIf="perfilForm.get('c_Perfil')?.hasError('required')">
+        El nombre del perfil es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+      <button mat-button (click)="onClose()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

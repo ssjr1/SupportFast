@@ -4,14 +4,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { Ciudades } from '../../../../models/ciudades.model';
+import { Perfiles } from '../../../../models/perfiles.model';
 import { NgIf } from '@angular/common';
+import { PerfilesService } from '../../../../services/perfiles.service';
 
 @Component({
-  selector: 'app-editar-ciudad',
+  selector: 'app-editar-perfil',
   standalone: true,
-  imports:
-  [
+  imports: [
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
@@ -19,36 +19,35 @@ import { NgIf } from '@angular/common';
     ReactiveFormsModule,
     NgIf
   ],
-  templateUrl: './editar-ciudad.component.html',
-  styleUrl: './editar-ciudad.component.scss'
+  templateUrl: './editar-perfil.component.html',
+  styleUrls: ['./editar-perfil.component.scss']
 })
-export class EditarCiudadComponent
-{
-  editarCiudadForm!: FormGroup;
+export class EditarPerfilComponent {
+  form!: FormGroup;
 
   constructor(
-    public dialogRef: MatDialogRef<EditarCiudadComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Ciudades,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private perfilesService: PerfilesService,
+    public dialogRef: MatDialogRef<EditarPerfilComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Perfiles
   ) {
-    // Inicializa el formulario con los datos recibidos
-    /*this.ciudadForm = this.fb.group({
+    /*this.form = this.fb.group({
       id: [data.id],
-      c_Ciudad: [data.cCiudad, Validators.required]
+      c_Perfil: [data.c_Perfil, Validators.required]
     });*/
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.editarCiudadForm = this.fb.group({
+    this.form = this.fb.group({
       id: [this.data.id],
-      c_Ciudad: [this.data.c_Ciudad, Validators.required]
+      c_Perfil: [this.data.c_Perfil, Validators.required]
     });
   }
 
-  onSave() {
-    if (this.editarCiudadForm.valid) {
-      this.dialogRef.close(this.editarCiudadForm.value);
+  onSave(): void {
+    if (this.form.valid) {
+      this.dialogRef.close(this.form.value);
     }
   }
 

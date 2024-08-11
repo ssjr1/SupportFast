@@ -1,10 +1,5 @@
-export class Perfiles {
+export interface Perfiles {
     id: number;
-    cPerfil: string;
-  
-    constructor() {
-      this.id = 0;
-      this.cPerfil = '';
-    }
+    c_Perfil: string;
   }
   

@@ -1,19 +1,19 @@
 <h1 mat-dialog-title>Editar Ciudad</h1>
 <div mat-dialog-content>
-  <form [formGroup]="ciudadForm" (ngSubmit)="onSave()">
+  <form [formGroup]="editarCiudadForm" (ngSubmit)="onSave()">
 
 
     <mat-form-field appearance="fill">
       <mat-label>Ciudad</mat-label>
       <input matInput formControlName="c_Ciudad" />
-      <mat-error *ngIf="ciudadForm.get('c_Ciudad')?.hasError('required')">
+      <mat-error *ngIf="editarCiudadForm.get('c_Ciudad')?.hasError('required')">
         El nombre de la ciudad es requerido.
       </mat-error>
     </mat-form-field>
 
-    <div mat-dialog-actions>
+    <div mat-dialog-actions align="end">
       <button mat-button (click)="onCancel()">Cancelar</button>
-      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="editarCiudadForm.invalid">Guardar</button>
     </div>
   </form>
 </div>

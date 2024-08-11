@@ -9,6 +9,7 @@ import { RolComponent } from './components/administracion/rol/rol.component';
 import { NuevoTicketComponent } from './components/ticket/nuevo-ticket/nuevo-ticket.component';
 import { CiudadComponent } from './components/administracion/ciudad/ciudad.component';
 import { AreaComponent } from './components/administracion/area/area.component';
+import { EstadoComponent } from './components/administracion/estado/estado.component';
 
 export const routes: Routes =
 [
@@ -46,6 +47,10 @@ export const routes: Routes =
                     {
                         path: 'area',
                         component:AreaComponent
+                    },
+                    {
+                        path: 'estado',
+                        component: EstadoComponent
                     }
                 ]
             },

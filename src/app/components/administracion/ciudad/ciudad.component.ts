@@ -46,7 +46,7 @@ export class CiudadComponent
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _ciudadesService: CiudadesService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
+  constructor(private _ciudadesService: CiudadesService, public dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.loadCiudades();
@@ -86,16 +86,18 @@ export class CiudadComponent
   }
 
   editCiudad(id: number): void {
-    const dialogRef = this.dialog.open(EditarCiudadComponent, {
-      data: { id }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this._ciudadesService.updateCiudad(id, result).subscribe(() => {
-          this.loadCiudades(); // Recargar la lista después de editar una ciudad
-        });
-      }
+    this._ciudadesService.getCiudad(id).subscribe(ciudad => {
+      const dialogRef = this.dialog.open(EditarCiudadComponent, {
+        width: '400px',
+        data: ciudad
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this._ciudadesService.updateCiudad(result.id, result).subscribe(() => {
+            this.loadCiudades();
+          });
+        }
+      });
     });
   }
 

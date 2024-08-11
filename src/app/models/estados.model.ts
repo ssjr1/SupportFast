@@ -1,10 +1,6 @@
-export class Estados {
+export interface Estados {
     id: number;
-    cEstado: string;
-  
-    constructor() {
-      this.id = 0;
-      this.cEstado = '';
-    }
+    c_Estado: string;
   }
+  
   

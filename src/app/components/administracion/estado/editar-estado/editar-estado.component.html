@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Editar Estado</h2>
+<form [formGroup]="editEstadoForm" (ngSubmit)="onSave()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Estado</mat-label>
+      <input matInput formControlName="c_Estado" />
+      <mat-error *ngIf="editEstadoForm.get('c_Estado')?.hasError('required')">
+        El nombre del estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editEstadoForm.invalid">Guardar</button>
+  </mat-dialog-actions>
+</form>
