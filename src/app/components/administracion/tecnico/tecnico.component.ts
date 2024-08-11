@@ -5,7 +5,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
 import { tecnico } from '../../../models/tecnicos.model';
-import { TecnicoService } from '../../../services/tecnico.service';
+import { TecnicoService } from '../../../services/tecnicos.service';
 
 @Component({
   selector: 'app-tecnico',
