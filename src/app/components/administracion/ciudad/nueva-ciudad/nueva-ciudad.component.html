@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Agregar Nueva Ciudad</h2>
+<form [formGroup]="ciudadForm" (ngSubmit)="onSave()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre de la Ciudad</mat-label>
+    <input matInput formControlName="c_Ciudad">
+    <mat-error *ngIf="ciudadForm.get('c_Ciudad')?.hasError('required')">
+      El nombre de la ciudad es requerido.
+    </mat-error>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

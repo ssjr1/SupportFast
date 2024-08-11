@@ -1,23 +1,63 @@
-.center {
-    text-align: center;
-  }
-  
-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #f5f5f5;
-  }
-  
+/* Estilos para la tarjeta */
+mat-card {
+  margin: 20px;
+}
+
+/* Estilos para la tabla */
+.mat-table {
+  width: 100%;
+}
+
+/* Estilos para las celdas y encabezados */
+.mat-header-cell {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.mat-cell {
+  padding: 8px;
+}
+
+/* Estilos para las filas alternas */
+.mat-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.mat-row:hover {
+  background-color: #e0e0e0;
+}
+
+/* Estilos para la cinta (toolbar) */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Espaciador para empujar el botón a la derecha */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Estilos para el botón de la toolbar */
+mat-toolbar button {
+  margin-left: auto;
+}
+
+mat-icon {
+  font-size: 24px; /* Tamaño de los iconos */
+  margin-right: 8px; /* Espaciado entre los iconos */
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+button {
+  margin: 0 8px;
+}

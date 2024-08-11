@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Editar Área</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Área</mat-label>
+      <input matInput formControlName="c_Area" />
+      <mat-error *ngIf="form.controls['c_Area'].hasError('required')">
+        El campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Guardar</button>
+</div>

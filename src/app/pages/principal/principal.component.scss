@@ -4,7 +4,6 @@ mat-toolbar
 {
     position: relative;
     z-index: 2;
-    background-color: azure;
 }
 
 /* Atributo de clases para dar un espaciado al contenido para la
@@ -25,12 +24,6 @@ mat-sidenav, mat-sidenav-contect
 {
     transition: all 500ms ease-in-out;
 }
-
-mat-sidenav
-{
-    background-color: azure;
-}
-
 /*
 mat-sidenav-content
 {

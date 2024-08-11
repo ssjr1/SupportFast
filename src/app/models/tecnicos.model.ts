@@ -1,4 +1,4 @@
-export class tecnico {
+export class Tecnicos {
     id: number;
     nombreTecnico: string;
   

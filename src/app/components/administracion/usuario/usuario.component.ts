@@ -1,29 +1,69 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { usuario } from '../../../models/usuario.model';
-import { rol } from '../../../models/rol.model';
-import { UsuarioService } from '../../../services/usuario.service';
+import { MatCardModule} from '@angular/material/card'
+import { UsuariosService } from '../../../services/usuarios.service';
+
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { Usuarios } from '../../../models/usuarios.model';
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [CommonModule],
+  imports:
+  [
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatCardModule
+  ],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.scss'
 })
 export class UsuarioComponent implements OnInit {
-  usuarios: usuario[] = [];
-  roles: rol[] = [];
+  displayedColumns: string[] =
+  [
+    'id',
+    'cedula',
+    'nombres',
+    'apellidos',
+    'fecNacimiento',
+    'perfil',
+    'area',
+    'ciudad',
+    'direcciones',
+    'fechaCreacion',
+    'fechaModificacion',
+    'actions'
+  ];
+  dataSource = new MatTableDataSource<Usuarios>();
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuariosService: UsuariosService) {}
 
   ngOnInit(): void {
-    this.usuarios = this.usuarioService.getUsuarios();
-    this.roles = this.usuarioService.getRoles();
+    this.loadUsuarios();
   }
 
-  getRolName(rolId: number): string {
-    const rol = this.roles.find(r => r.id === rolId);
-    return rol ? rol.nombre : 'Unknown';
+  loadUsuarios(): void {
+    this.usuariosService.getUsuarios().subscribe(
+      (usuarios: Usuarios[]) => {
+        this.dataSource.data = usuarios;
+      },
+      (error) => {
+        console.error('Error fetching usuarios', error);
+      }
+    );
+  }
+  editUser(id: number): void {
+    // Lógica para editar el usuario
+    console.log('Edit user with ID:', id);
+  }
+
+  deleteUser(id: number): void {
+    // Lógica para eliminar el usuario
+    this.usuariosService.deleteUsuario(id).subscribe(
+      () => this.loadUsuarios(),
+      error => console.error('Error al eliminar usuario', error)
+    );
   }
 }
