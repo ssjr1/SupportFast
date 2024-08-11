@@ -7,6 +7,7 @@ import { ReporteComponent } from './pages/reporte/reporte.component';
 import { UsuarioComponent } from './components/administracion/usuario/usuario.component';
 import { RolComponent } from './components/administracion/rol/rol.component';
 import { NuevoTicketComponent } from './components/ticket/nuevo-ticket/nuevo-ticket.component';
+import { CiudadComponent } from './components/administracion/ciudad/ciudad.component';
 
 export const routes: Routes =
 [
@@ -36,7 +37,11 @@ export const routes: Routes =
                     {
                         path: 'perfil',
                         component: RolComponent
-                    }
+                    },
+                    {
+                        path: 'ciudad',
+                        component: CiudadComponent
+                    },
                 ]
             },
             {
