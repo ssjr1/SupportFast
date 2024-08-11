@@ -10,7 +10,11 @@ table {
 td, th {
   width: 25%;
 }
-  
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
   th {
     background-color: #f2f2f2;
   }
@@ -22,3 +26,33 @@ td, th {
     font-size: 14px;
     width: 100%;
   }
+  .titulo-azure-blue {
+    background: inherit;
+    text-align: center; // Centra el texto
+    
+  }
+
+  .contenedor-con-botones {
+    position: relative;
+  }
+  
+  .boton-estatico {
+    position: absolute;
+    z-index: 10;
+    
+  }
+  
+  .boton-estatico.arriba {
+    margin-top: 1%;
+    top: 0;
+  }
+  
+  .boton-estatico.abajo {
+    bottom: 0;
+  }
+  
+  .contenedor-tabla {
+    max-height: 300px; /* Ajusta esto según tus necesidades */
+    overflow-y: auto;
+  }
+  

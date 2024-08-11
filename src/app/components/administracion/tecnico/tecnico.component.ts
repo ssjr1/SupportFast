@@ -7,11 +7,14 @@ import { tecnico } from '../../../models/tecnico.model';
 import { TecnicoService } from '../../../services/tecnico.service';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-tecnico',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, RouterModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, RouterModule,MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './tecnico.component.html',
   styleUrl: './tecnico.component.scss'
 })
@@ -33,11 +36,13 @@ export class TecnicoComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
   ngOnInit(): void {
     this.ConsultarTecnico();
     
   }
+
+  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -55,6 +60,8 @@ export class TecnicoComponent {
         console.log(data);
         this.listaTecnico = data;
         this.dataSource = new MatTableDataSource(this.listaTecnico);
+        this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
         
       }, error: error => {
         alert("Ocurrió un error");

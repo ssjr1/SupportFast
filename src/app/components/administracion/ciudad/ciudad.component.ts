@@ -7,6 +7,9 @@ import { CiudadService } from '../../../services/ciudad.service';
 import { MatInputModule } from '@angular/material/input';
 import { ciudad } from '../../../models/ciudad.model';
 import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -14,7 +17,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-ciudad',
   standalone: true,
-  imports: [  MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, RouterModule
+  imports: [  MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, RouterModule,MatButtonModule, MatDividerModule, MatIconModule
   ],
   templateUrl: './ciudad.component.html',
   styleUrl: './ciudad.component.scss'
@@ -61,6 +64,8 @@ export class CiudadComponent  {
         console.log(data);
         this.listaCiudad = data;
         this.dataSource = new MatTableDataSource(this.listaCiudad);
+        this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
       }, error: error => {
         alert("Ocurrió un error");
       },
