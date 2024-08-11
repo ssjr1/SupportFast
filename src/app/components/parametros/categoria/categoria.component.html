@@ -1,18 +1,18 @@
 <div class="container">
-  <h1>Fomulario Categoria</h1>
+  <h1>Formulario Categoría</h1>
 </div>
-
+<div class="form">
 <form [formGroup]="catForm" (ngSubmit)="guardar()">
   <div class="container my-10">
     <mat-card appearance="outlined" class="car">
       <div class="row">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Nombre</mat-label>
           <input matInput type="text" formControlName="nombre">
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Fecha de creacion</mat-label>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Fecha de creación</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="fechaCreacion">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -20,37 +20,32 @@
         </mat-form-field>
       </div>
 
-      <br>
-
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Descripcion</mat-label>
+      <div class="row mt-3"> <!-- Reemplazado el <br> por una clase de margen de Angular Material -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descripción</mat-label>
           <input matInput type="text" formControlName="descripcion">
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Estado</mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="food" formControlName="estado">
-            @for (estado of estado; track estado.id) {
-            <mat-option [value]="estado.id">{{estado.viewValue}}</mat-option>
-            }
+          <mat-select formControlName="estado">
+            <mat-option *ngFor="let estado of  estado" [value]="estado.id">
+              {{ estado.viewValue }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
-
       </div>
 
-      <div class="example-button-row">
-        <a routerLink="/tablaCategoria">
-          <button mat-flat-button color="warn">
-            Ver Tabla
-          </button>
+      <div class="button-row">
+        <a mat-button  routerLink="/tablaCategoria">
+          Ver Tabla
         </a>
         <button [disabled]="catForm.invalid" mat-flat-button color="primary" type="submit">
-          guardar
+          Guardar
         </button>
       </div>
     </mat-card>
-
-
   </div>
 </form>
+</div>
+

@@ -17,12 +17,13 @@ import { CategoriaService } from '../../../service/categoria.service';
 import { Categoria } from '../../../modelos/Categoria';
 import { EstadosService } from '../../../service/estados.service';
 import { Estado } from '../../../modelos/Estado';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-estado',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule,
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, CommonModule, MatSelectModule,
     MatButtonModule, MatDatepickerModule, RouterOutlet,
     RouterLink, MatSelectModule, FormsModule,
     ReactiveFormsModule, MatDividerModule,],

@@ -32,4 +32,6 @@ import { ListaEstadoComponent } from './components/parametros/lista-estado/lista
     }
   )
 export class AppComponent {
+  parametro!: string;
+
 }

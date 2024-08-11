@@ -17,6 +17,9 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { CategoriaService } from '../../../service/categoria.service';
 import { Categoria } from '../../../modelos/Categoria';
 import { Estado } from '../../../modelos/Estado';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { CommonModule } from '@angular/common';
+
 
 interface Food {
   value: string;
@@ -27,8 +30,8 @@ interface Food {
   selector: 'app-categoria',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule,
-    MatButtonModule, MatDatepickerModule, RouterOutlet,
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule, CommonModule,
+    MatButtonModule, MatGridListModule, MatDatepickerModule, RouterOutlet,
     RouterLink, MatSelectModule, FormsModule,
     ReactiveFormsModule, MatDividerModule,
   ],

@@ -83,7 +83,5 @@ export class ListaEstadoComponent {
     });
   }
 
-  editar(id: number) {
 
-  }
 }
