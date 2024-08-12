@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Nueva Solución</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Solución</mat-label>
+    <input matInput formControlName="c_Solucion" />
+  </mat-form-field>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Solución Definitiva</mat-label>
+    <mat-checkbox formControlName="l_Solucion_Definitiva"></mat-checkbox>
+  </mat-form-field> -->
+
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

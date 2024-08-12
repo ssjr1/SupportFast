@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Editar Tecnico</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombres y apellidos de la categoria</mat-label>
+      <input matInput formControlName="c_Categoria" />
+      <mat-error *ngIf="form.controls['c_Categoria'].hasError('required')">
+        El campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+    <mat-label>ID Tecnico</mat-label>
+    <input matInput formControlName="id_TecnicoDefault" />
+    <mat-error *ngIf="form.controls['id_TecnicoDefault'].hasError('required')">
+      El campo es obligatorio
+    </mat-error>
+</mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Guardar</button>
+</div>

@@ -10,6 +10,9 @@ import { NuevoTicketComponent } from './components/ticket/nuevo-ticket/nuevo-tic
 import { CiudadComponent } from './components/administracion/ciudad/ciudad.component';
 import { AreaComponent } from './components/administracion/area/area.component';
 import { EstadoComponent } from './components/administracion/estado/estado.component';
+import { SolucionComponent } from './components/administracion/solucion/solucion.component';
+import { TecnicoComponent } from './components/administracion/tecnico/tecnico.component';
+import { CategoriaComponent } from './components/administracion/categoria/categoria.component';
 
 export const routes: Routes =
 [
@@ -51,6 +54,18 @@ export const routes: Routes =
                     {
                         path: 'estado',
                         component: EstadoComponent
+                    },
+                    {
+                        path: 'solucion',
+                        component: SolucionComponent
+                    },
+                    {
+                        path: 'tecnico',
+                        component: TecnicoComponent
+                    },
+                    {
+                        path: 'categoria',
+                        component: CategoriaComponent
                     }
                 ]
             },

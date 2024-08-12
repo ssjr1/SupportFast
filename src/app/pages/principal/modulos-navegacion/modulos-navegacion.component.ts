@@ -86,6 +86,11 @@ export class ModulosNavegacionComponent
             route: 'categoria'
           },
           {
+            icon: 'lightbulb',
+            label: 'Solución',
+            route: 'solucion'
+          },
+          {
             icon: 'format_list_bulleted',
             label: 'Subcategoria',
             route: 'subcategoria'

@@ -29,13 +29,12 @@ mat-card {
   .mat-row:hover {
     background-color: #e0e0e0;
   }
+  
   /* Estilos para la cinta (toolbar) */
-.toolbar {
+  .toolbar {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
-    //background-color: #3f51b5; /* Color de fondo de la toolbar */
-    //color: white; /* Color del texto */
   }
   
   /* Espaciador para empujar el botón a la derecha */
@@ -47,10 +46,12 @@ mat-card {
   mat-toolbar button {
     margin-left: auto;
   }
+  
   mat-icon {
-    font-size: 24px; /* Tamaño de los iconos */
-    margin-right: 8px; /* Espaciado entre los iconos */
+    font-size: 24px;
+    margin-right: 8px;
   }
+  
   mat-form-field {
     width: 100%;
     margin-bottom: 16px;
@@ -60,7 +61,7 @@ mat-card {
     padding: 16px;
   }
   
-  
   button {
     margin: 0 8px;
-  }  
+  }
+  

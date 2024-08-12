@@ -1,12 +1,5 @@
-export class Soluciones {
-    id: number;
-    cSolucion: string;
-    lSolucionDefinitiva: boolean;
-  
-    constructor() {
-      this.id = 0;
-      this.cSolucion = '';
-      this.lSolucionDefinitiva = false;
-    }
-  }
-  
+export interface Soluciones {
+  id: number;
+  c_Solucion: string;
+  l_Solucion_Definitiva: boolean;
+}
